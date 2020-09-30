@@ -1,0 +1,33 @@
+{
+    "defaultSeverity": "warning",
+    "extends": ["tslint:latest", "tslint-config-prettier"],
+    "rules": {
+        "deprecation": true,
+        "interface-name": [true, "always-prefix"],
+        "member-ordering": [
+            true,
+            { "alphabetize": true, "order": "fields-first" }
+        ],
+        "no-empty": false,
+        "no-empty-interface": false,
+        "no-namespace": false,
+        "no-submodule-imports": false,
+        "no-unused-expression": [true, "allow-fast-null-checks"],
+        "only-arrow-functions": false,
+        "ordered-imports": [
+            true,
+            {
+                "import-sources-order": "case-insensitive",
+                "named-imports-order": "case-insensitive"
+            }
+        ],
+        "quotemark": [true, "double", "jsx-double"],
+        "variable-name": {
+            "options": [
+                "allow-leading-underscore",
+                "allow-pascal-case",
+                "require-const-for-all-caps"
+            ]
+        }
+    }
+}

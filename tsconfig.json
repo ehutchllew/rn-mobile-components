@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "allowJs": true,
+        "allowSyntheticDefaultImports": true,
+        "declaration": true,
+        // "declarationDir": "dist/@types",
+        "esModuleInterop": true,
+        "isolatedModules": false,
+        "jsx": "react",
+        "lib": ["es6"],
+        "module": "CommonJS",
+        "moduleResolution": "node",
+        "outDir": "dist",
+        "resolveJsonModule": true,
+        "strict": true,
+        "stripInternal": true,
+        "target": "esnext"
+    },
+    "exclude": [
+        "dist",
+        "src/App.tsx",
+        "node_modules",
+        "babel.config.js",
+        "metro.config.js",
+        "jest.config.js"
+    ]
+}

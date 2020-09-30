@@ -1,0 +1,46 @@
+//https://bitbucket.org/rn-mobile-components/jenkins-shared-library
+@Library("jenkins-shared-libraries@master") _
+def utilities = new com.rnmobilecomponents.Utilities()
+
+pipeline {
+    agent {
+        label "ios"
+    }
+    stages {
+        stage('Install'){
+            steps{
+                sh "yarn"
+            }
+        }
+        stage('Run Compile Checker'){
+            steps {
+                sh "yarn run tsc"
+            }
+        }
+        stage('Publishing Checks') {
+            when {
+                expression{
+                    utilities.isPullRequestTargetProduction()
+                }
+            }
+            steps {
+                validateSharedModule()
+            }
+        }
+        stage('Publish'){
+            when {
+                expression{
+                    utilities.isMasterMerge()
+                }
+            }
+            steps {
+                publishSharedModule{}
+            }
+        }
+    }
+    post {
+        always {
+            cleanWs()
+        }
+    }
+}
